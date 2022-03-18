@@ -11,7 +11,7 @@ How to use:
 3. Run the script
 
 As a result generated_config.txt file will be created with config and rollback:
-
+---
 config firewall service custom
     edit "Myservice1"
         set tcp-portrange 332
@@ -113,3 +113,4 @@ config firewall policy
     delete "4"
     delete "5"
 end
+---
