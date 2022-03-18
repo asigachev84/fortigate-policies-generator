@@ -25,12 +25,9 @@ with open(policies_file) as f:
     for row in reader:
         policies_list.append(row)
 
-print(policies_list)
-
 with open(config_template) as f:
     template = Template(f.read(), trim_blocks=True)
 
 print(template.render(services_list=services_list, addr_list=addr_list, policies_list=policies_list))
-
-
-
+with open("generated_config.txt", 'w') as f:
+    f.write(template.render(services_list=services_list, addr_list=addr_list, policies_list=policies_list))
