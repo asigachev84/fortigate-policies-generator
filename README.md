@@ -89,11 +89,11 @@ config firewall policy
         set logtraffic disable
     next
 end
-
+---
 ##################
 ##   ROLLBACK   ##
 ##################
-
+---
 config firewall service custom
     delete "Myservice1"
     delete "Myservice2"
