@@ -1,0 +1,4 @@
+Name,IP,Subnet Mask,Comment
+Server1,192.168.1.1,255.255.255.0,FTP Server
+Server2,172.16.12.10,255.255.255.0,Web Server
+Host2,10.23.14.51,255.255.255.0,Admin PC

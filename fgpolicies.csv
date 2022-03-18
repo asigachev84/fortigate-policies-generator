@@ -1,0 +1,6 @@
+Rule ID,Source Interface,Destination Interface,Action,Source Address List,Destination Address List,Service List,Logtraffic,NAT
+1,Port1,Wan1,accept,Server1,Server2,Myservice1,all,enable
+2,Port2,Wan2,accept,Server1,Server2,Myservice1,all,
+3,Wan1,PortA,accept,Server1,Server2,Myservice3,utm,
+4,Wan2,Port1,accept,Host2,Server1,Myservice3,disable,enable
+5,PortA,Port2,accept,Host2,Server1,Myservice3,disable,

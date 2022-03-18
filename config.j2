@@ -1,0 +1,57 @@
+config firewall service custom
+{% for service in services_list %}
+    edit {{'"'+service['Name']+'"'}}
+{% if service['TCP-Portrange'] != '' %}
+        set tcp-portrange {{service['TCP-Portrange']}}
+{% endif %}
+{% if service['UDP-Portrange'] != '' %}
+        set udp-portrange {{service['UDP-Portrange']}}
+{% endif %}
+    next
+{% endfor %}
+end
+
+config firewall address
+{% for address in addr_list %}
+    edit {{'"'+address['Name']+'"'}}
+        set subnet {{address['IP']}} {{address['Subnet Mask']}}
+    next
+{% endfor %}
+end
+
+config firewall policy
+{% for policy in policies_list %}
+    edit {{'"'+policy['Rule ID']+'"'}}
+        set name
+        set srcintf {{policy['Source Interface']}}
+        set dstintf {{policy['Destination Interface']}}
+        set action {{policy['Action']}}
+        set srcaddr {{policy['Source Address List']}}
+        set dstaddr {{policy['Destination Address List']}}
+        set service {{policy['Service List']}}
+        set logtraffic {{policy['Logtraffic']}}
+    next
+{% endfor %}
+end
+
+##################
+##   ROLLBACK   ##
+##################
+
+config firewall service custom
+{% for service in services_list %}
+    delete {{'"'+service['Name']+'"'}}
+{% endfor %}
+end
+
+config firewall address
+{% for address in addr_list %}
+    delete {{'"'+address['Name']+'"'}}
+{% endfor %}
+end
+
+config firewall policy
+{% for policy in policies_list %}
+    delete {{'"'+policy['Rule ID']+'"'}}
+{% endfor %}
+end

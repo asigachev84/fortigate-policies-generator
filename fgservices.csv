@@ -1,0 +1,4 @@
+Name,TCP-Portrange,UDP-Portrange
+Myservice1,332,
+Myservice2,,252
+Myservice3,123,456
