@@ -1,5 +1,5 @@
 # fortigate-policies-generator
-Generate Firewall Policies from CSV
+The script generates Firewall Policies from CSV spreadsheets
 
 How to use:
 
